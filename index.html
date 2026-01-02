@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iAI Tech - Innovative AI Technologies</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -15,36 +18,39 @@
         }
 
         :root {
-            --primary: #FF6B35;
-            --secondary: #004E89;
-            --accent: #F7B801;
-            --dark: #1A1A2E;
-            --light: #F4F4F9;
-            --gradient-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --cyber-cyan: #00d4ff;
+            --deep-purple: #6b4c9a;
+            --neon-pink: #ff006e;
+            --dark-void: #0a0e27;
+            --void-black: #050816;
+            --neural-white: #f0f4f8;
+            --gold: #ffd700;
         }
 
         body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--dark);
-            color: var(--light);
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--void-black);
+            color: var(--neural-white);
             overflow-x: hidden;
-            line-height: 1.6;
         }
 
-        /* Animated Background */
-        .background-animation {
+        #root {
+            min-height: 100vh;
+        }
+
+        /* Neural Network Background */
+        .neural-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
+            background: radial-gradient(ellipse at center, #0a0e27 0%, #000 100%);
+            overflow: hidden;
         }
 
-        .background-animation::before {
+        .neural-bg::before {
             content: '';
             position: absolute;
             top: 0;
@@ -52,144 +58,164 @@
             width: 100%;
             height: 100%;
             background-image: 
-                radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(0, 78, 137, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 20%, rgba(247, 184, 1, 0.1) 0%, transparent 50%);
-            animation: float 20s ease-in-out infinite;
+                radial-gradient(circle at 15% 25%, rgba(0, 212, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 85% 75%, rgba(107, 76, 154, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(255, 0, 110, 0.1) 0%, transparent 60%);
+            animation: pulse 20s ease-in-out infinite;
         }
 
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
         }
 
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            33% { transform: translate(30px, -30px) rotate(5deg); }
-            66% { transform: translate(-20px, 20px) rotate(-5deg); }
-        }
-
-        /* Header */
-        header {
-            position: relative;
-            padding: 2rem 5%;
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            backdrop-filter: blur(10px);
-            background: rgba(26, 26, 46, 0.6);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            background: rgba(10, 14, 39, 0.9);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+            z-index: 1000;
             animation: slideDown 0.8s ease-out;
         }
 
         @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
         }
 
-        .logo {
-            font-family: 'Syne', sans-serif;
-            font-size: 2rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-img {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: transparent;
+    filter: drop-shadow(0 0 18px rgba(0, 212, 255, 0.6));
+    transition: all 0.3s ease;
+    transform: scale(1.1);
+}
+
+.logo-img:hover {
+    transform: scale(1.18);
+    filter: drop-shadow(0 0 25px rgba(0, 212, 255, 0.9));
+}
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .logo-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--cyber-cyan), var(--neon-pink));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            letter-spacing: -1px;
+            text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
         }
 
-        nav {
+        .nav {
             display: flex;
             gap: 2.5rem;
         }
 
-        nav a {
-            color: var(--light);
+        .nav-link {
+            color: var(--neural-white);
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 1.1rem;
             position: relative;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
 
-        nav a::after {
+        .nav-link::after {
             content: '';
             position: absolute;
             bottom: -5px;
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--primary);
+            background: var(--cyber-cyan);
             transition: width 0.3s ease;
+            box-shadow: 0 0 10px var(--cyber-cyan);
         }
 
-        nav a:hover {
-            color: var(--primary);
+        .nav-link:hover {
+            color: var(--cyber-cyan);
         }
 
-        nav a:hover::after {
+        .nav-link:hover::after {
             width: 100%;
         }
 
         /* Hero Section */
         .hero {
-            padding: 8rem 5% 6rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
+            padding: 8rem 5% 4rem;
             position: relative;
         }
 
-        .hero h1 {
-            font-family: 'Syne', sans-serif;
-            font-size: 5.5rem;
-            font-weight: 800;
-            line-height: 1.1;
+        .hero-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 5rem;
+            font-weight: 900;
+            line-height: 1.2;
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
+            background: linear-gradient(135deg, #fff 0%, var(--cyber-cyan) 50%, var(--neon-pink) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: fadeInUp 1s ease-out;
+            text-shadow: 0 0 40px rgba(0, 212, 255, 0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.6rem;
+            color: rgba(240, 244, 248, 0.9);
+            max-width: 800px;
+            margin-bottom: 3rem;
             animation: fadeInUp 1s ease-out 0.2s both;
+            line-height: 1.8;
         }
 
-        .hero p {
-            font-size: 1.4rem;
-            color: rgba(244, 244, 249, 0.8);
-            max-width: 700px;
-            margin: 0 auto 3rem;
-            animation: fadeInUp 1s ease-out 0.4s both;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1.2rem 3rem;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
+        .cta-btn {
+            padding: 1.3rem 3.5rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            text-decoration: none;
+            background: linear-gradient(135deg, var(--cyber-cyan), var(--deep-purple));
+            color: white;
+            border: none;
             border-radius: 50px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            animation: fadeInUp 1s ease-out 0.6s both;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out 0.4s both;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
         }
 
-        .cta-button::before {
+        .cta-btn::before {
             content: '';
             position: absolute;
             top: 0;
@@ -200,28 +226,39 @@
             transition: left 0.5s ease;
         }
 
-        .cta-button:hover::before {
+        .cta-btn:hover::before {
             left: 100%;
         }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+        .cta-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.6);
         }
 
-        /* Team Section */
-        .team-section {
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styles */
+        .section {
             padding: 6rem 5%;
             position: relative;
         }
 
         .section-title {
-            font-family: 'Syne', sans-serif;
+            font-family: 'Orbitron', sans-serif;
             font-size: 3.5rem;
             font-weight: 700;
             text-align: center;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--light), var(--secondary));
+            background: linear-gradient(135deg, var(--neural-white), var(--cyber-cyan));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -229,37 +266,31 @@
 
         .section-subtitle {
             text-align: center;
-            color: rgba(244, 244, 249, 0.7);
+            color: rgba(240, 244, 248, 0.7);
             margin-bottom: 4rem;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
 
+        /* Team Grid */
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-            max-width: 1200px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
         .team-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
             padding: 2.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
             animation: fadeInUp 0.6s ease-out both;
         }
-
-        .team-card:nth-child(1) { animation-delay: 0.1s; }
-        .team-card:nth-child(2) { animation-delay: 0.2s; }
-        .team-card:nth-child(3) { animation-delay: 0.3s; }
-        .team-card:nth-child(4) { animation-delay: 0.4s; }
-        .team-card:nth-child(5) { animation-delay: 0.5s; }
-        .team-card:nth-child(6) { animation-delay: 0.6s; }
 
         .team-card::before {
             content: '';
@@ -268,135 +299,194 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(107, 76, 154, 0.1));
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.4s ease;
         }
 
         .team-card:hover::before {
-            opacity: 0.1;
+            opacity: 1;
         }
 
         .team-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(-15px) scale(1.02);
+            border-color: var(--cyber-cyan);
+            box-shadow: 0 25px 50px rgba(0, 212, 255, 0.3);
         }
 
-        .member-avatar {
-            width: 100px;
-            height: 100px;
+        .profile-img {
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            margin: 0 auto 1.5rem;
+            border: 3px solid var(--cyber-cyan);
+            box-shadow: 0 0 25px rgba(0, 212, 255, 0.5);
+            position: relative;
+            z-index: 1;
+            object-fit: cover;
+            background: linear-gradient(135deg, var(--deep-purple), var(--cyber-cyan));
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            font-family: 'Syne', sans-serif;
-            margin: 0 auto 1.5rem;
-            position: relative;
-            z-index: 1;
+            font-size: 3rem;
+            font-weight: 900;
+            font-family: 'Orbitron', sans-serif;
         }
 
         .member-name {
-            font-family: 'Syne', sans-serif;
-            font-size: 1.5rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.6rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
+            color: var(--cyber-cyan);
             position: relative;
             z-index: 1;
+            text-align: center;
         }
 
         .member-role {
-            color: var(--accent);
+            color: var(--neon-pink);
             font-weight: 600;
+            font-size: 1.1rem;
             margin-bottom: 1rem;
             position: relative;
             z-index: 1;
+            text-align: center;
         }
 
         .member-bio {
-            color: rgba(244, 244, 249, 0.7);
-            line-height: 1.6;
+            color: rgba(240, 244, 248, 0.8);
+            line-height: 1.7;
             position: relative;
             z-index: 1;
+            text-align: center;
         }
 
-        /* Skills Section */
-        .skills-section {
-            padding: 6rem 5%;
-            background: rgba(0, 0, 0, 0.2);
+        .member-credentials {
+            color: rgba(240, 244, 248, 0.6);
+            font-size: 0.95rem;
+            font-style: italic;
+            margin-top: 0.8rem;
+            position: relative;
+            z-index: 1;
+            text-align: center;
         }
 
-        .skills-grid {
+        /* Awards Section */
+        .awards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            max-width: 1000px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
-        .skill-item {
-            text-align: center;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
+        .award-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
             animation: fadeInUp 0.6s ease-out both;
         }
 
-        .skill-item:nth-child(1) { animation-delay: 0.1s; }
-        .skill-item:nth-child(2) { animation-delay: 0.2s; }
-        .skill-item:nth-child(3) { animation-delay: 0.3s; }
-        .skill-item:nth-child(4) { animation-delay: 0.4s; }
-
-        .skill-item:hover {
-            background: rgba(255, 107, 53, 0.1);
-            border-color: var(--primary);
-            transform: scale(1.05);
+        .award-card::before {
+            content: '🏆';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 8rem;
+            opacity: 0.05;
         }
 
-        .skill-icon {
+        .award-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
+        }
+
+        .award-icon {
             font-size: 3rem;
             margin-bottom: 1rem;
         }
 
-        .skill-name {
-            font-family: 'Syne', sans-serif;
+        .award-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
             font-weight: 700;
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
+            color: var(--gold);
+            margin-bottom: 0.8rem;
         }
 
-        .skill-description {
-            color: rgba(244, 244, 249, 0.6);
+        .award-org {
+            color: var(--cyber-cyan);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .award-desc {
+            color: rgba(240, 244, 248, 0.7);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .award-year {
+            color: rgba(240, 244, 248, 0.5);
             font-size: 0.95rem;
+            font-style: italic;
+        }
+
+        .award-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--cyber-cyan);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .award-link:hover {
+            color: var(--neon-pink);
+            text-decoration: underline;
         }
 
         /* Footer */
-        footer {
+        .footer {
             padding: 3rem 5%;
             text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            background: rgba(0, 0, 0, 0.3);
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
+            background: rgba(0, 0, 0, 0.4);
         }
 
-        footer p {
-            color: rgba(244, 244, 249, 0.6);
+        .footer-content {
+            color: rgba(240, 244, 248, 0.6);
+        }
+
+        .footer-link {
+            color: var(--cyber-cyan);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--neon-pink);
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
+            .hero-title {
                 font-size: 3rem;
             }
 
-            .hero p {
-                font-size: 1.1rem;
+            .hero-subtitle {
+                font-size: 1.2rem;
             }
 
-            nav {
+            .nav {
                 gap: 1.5rem;
             }
 
@@ -404,173 +494,325 @@
                 font-size: 2.5rem;
             }
 
-            .team-grid {
+            .team-grid,
+            .awards-grid {
                 grid-template-columns: 1fr;
             }
         }
 
-        /* Custom Cursor Effect */
-        .cursor-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--primary);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            transition: transform 0.15s ease;
+        /* Scroll Animation */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
         }
 
-        .cursor-outline {
-            width: 40px;
-            height: 40px;
-            border: 2px solid rgba(255, 107, 53, 0.5);
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(0, 212, 255, 0.2);
+            border-top-color: var(--cyber-cyan);
             border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Particle effect */
+        .particle {
             position: fixed;
-            pointer-events: none;
-            z-index: 9998;
-            transition: transform 0.2s ease;
+            width: 3px;
+            height: 3px;
+            background: var(--cyber-cyan);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: floatParticle 15s infinite;
+            z-index: -1;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(100vh) translateX(0) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px) scale(1);
+                opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="background-animation"></div>
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
+    <div id="root"></div>
 
-    <header>
-        <div class="logo">iAI Tech</div>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#team">Team</a>
-            <a href="#skills">Skills</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+    <script type="text/babel">
+        const { useState, useEffect } = React;
 
-    <section class="hero" id="home">
-        <h1>Innovative AI<br>Technologies</h1>
-        <p>We're pioneering the future of artificial intelligence with cutting-edge solutions that transform businesses and empower innovation.</p>
-        <a href="#team" class="cta-button">Meet Our Team</a>
-    </section>
+        // Team Data
+        const teamMembers = [
+            {
+                name: "Chengjun Liu",
+                role: "Founder & AI Visionary",
+                credentials: "Founder of the Open AI Team",
+                bio: "Pioneering artificial intelligence research and leading breakthrough innovations in computer vision and machine learning. Driving cutting-edge solutions in AI-powered video analysis and neural network architectures.",
+                initial: "CL"
+            },
+            {
+                name: "Taro Narahara",
+                role: "Chief Operating Officer",
+                credentials: "PhD, Harvard; M.S., MIT",
+                bio: "Strategic operations leader with deep expertise in AI implementation and organizational scaling. Drives operational excellence and business growth initiatives with proven academic foundation.",
+                initial: "TN"
+            },
+            {
+                name: "Hang Shi",
+                role: "Former CTO",
+                credentials: "Currently at Goldman Sachs, Manhattan, NY",
+                bio: "Technology architect with proven track record in building scalable AI infrastructure. Now applying cutting-edge machine learning solutions in quantitative finance and algorithmic trading at Goldman Sachs.",
+                initial: "HS"
+            },
+            {
+                name: "Hadi Ghahremannezhad",
+                role: "Former Chief ML Officer",
+                credentials: "Currently at Amazon, Arlington, VA",
+                bio: "Machine learning expert specializing in neural networks and deep learning architectures. Leading advanced AI initiatives at Amazon, focusing on large-scale distributed systems and intelligent automation.",
+                initial: "HG"
+            }
+        ];
 
-    <section class="team-section" id="team">
-        <h2 class="section-title">Our Team</h2>
-        <p class="section-subtitle">The brilliant minds behind our success</p>
-        
-        <div class="team-grid">
-            <div class="team-card">
-                <div class="member-avatar">AS</div>
-                <h3 class="member-name">Alex Sanders</h3>
-                <p class="member-role">Lead Developer</p>
-                <p class="member-bio">Full-stack architect with a passion for clean code and scalable solutions. 8+ years building robust web applications.</p>
-            </div>
+        // Awards Data
+        const awards = [
+            {
+                icon: "🏆",
+                title: "U.S. DOT SBIR Award",
+                org: "U.S. Department of Transportation",
+                description: "Innovative AI Video Analysis of Dilemma Zone Conflicts at Signal-Controlled Intersections using Edge Computing and 5G",
+                year: "2022-2023",
+                link: "https://www.volpe.dot.gov/work-with-us/small-business-innovation-research/fiscal-year-2022-awards#PhaseI"
+            },
+            {
+                icon: "🥇",
+                title: "NIST Public Safety Challenge",
+                org: "National Institute of Standards and Technology",
+                description: "Enhancing Computer Vision for Public Safety Challenge 2020 - Recognition for advancing AI-powered safety solutions using deep learning and real-time analytics",
+                year: "2020",
+                link: "https://web.njit.edu/~cliu/OAIT.html"
+            },
+            {
+                icon: "🚁",
+                title: "NIST FirstResponder UAS Triple Challenge",
+                org: "National Institute of Standards and Technology",
+                description: "FastFind: UAS Search Optimized (UAS 3.1) - Excellence in autonomous drone search and rescue technology leveraging computer vision and edge AI",
+                year: "2020",
+                link: "https://web.njit.edu/~cliu/OAIT.html"
+            },
+            {
+                icon: "💡",
+                title: "US Ignite: AI for IoT Prize",
+                org: "US Ignite",
+                description: "AI for IoT Information (AI3) Prize Competition - Innovation in integrating artificial intelligence with Internet of Things infrastructure for smart city applications",
+                year: "2020",
+                link: "https://web.njit.edu/~cliu/OAIT.html"
+            }
+        ];
 
-            <div class="team-card">
-                <div class="member-avatar">MJ</div>
-                <h3 class="member-name">Maya Johnson</h3>
-                <p class="member-role">UX Designer</p>
-                <p class="member-bio">Creative mind focused on user-centered design. Transforms complex problems into intuitive experiences.</p>
-            </div>
+        // Header Component
+        const Header = () => {
+            const scrollToSection = (id) => {
+                document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+            };
 
-            <div class="team-card">
-                <div class="member-avatar">RC</div>
-                <h3 class="member-name">Ryan Chen</h3>
-                <p class="member-role">Backend Engineer</p>
-                <p class="member-bio">Database wizard and API specialist. Ensures everything runs smoothly behind the scenes with optimal performance.</p>
-            </div>
+            return (
+                <header className="header">
+                    <div className="logo-container">
+                        <img src="./logo.png" alt="iAI Tech Logo" className="logo-img" onerror="this.style.display='none'" />
+                        <div className="logo-text">iAI Tech</div>
+                    </div>
+                    <nav className="nav">
+                        <a className="nav-link" onClick={() => scrollToSection('home')}>Home</a>
+                        <a className="nav-link" onClick={() => scrollToSection('team')}>Team</a>
+                        <a className="nav-link" onClick={() => scrollToSection('awards')}>Awards</a>
+                        <a className="nav-link" onClick={() => scrollToSection('contact')}>Contact</a>
+                    </nav>
+                </header>
+            );
+        };
 
-            <div class="team-card">
-                <div class="member-avatar">SP</div>
-                <h3 class="member-name">Sofia Patel</h3>
-                <p class="member-role">Product Manager</p>
-                <p class="member-bio">Strategic thinker who bridges user needs with technical execution. Keeps the team aligned and moving forward.</p>
-            </div>
+        // Hero Component
+        const Hero = () => {
+            const scrollToTeam = () => {
+                document.getElementById('team')?.scrollIntoView({ behavior: 'smooth' });
+            };
 
-            <div class="team-card">
-                <div class="member-avatar">DW</div>
-                <h3 class="member-name">David Wilson</h3>
-                <p class="member-role">DevOps Engineer</p>
-                <p class="member-bio">Infrastructure expert ensuring reliable deployments and monitoring. Makes scalability look effortless.</p>
-            </div>
+            return (
+                <section className="hero" id="home">
+                    <h1 className="hero-title">Innovative AI Technologies</h1>
+                    <p className="hero-subtitle">
+                        Pioneering next-generation artificial intelligence solutions through advanced computer vision, 
+                        deep learning, edge computing, and 5G integration. Transforming public safety, autonomous systems, 
+                        and intelligent infrastructure with cutting-edge neural networks and real-time analytics.
+                    </p>
+                    <button className="cta-btn" onClick={scrollToTeam}>Explore Our Innovation</button>
+                </section>
+            );
+        };
 
-            <div class="team-card">
-                <div class="member-avatar">LM</div>
-                <h3 class="member-name">Lisa Martinez</h3>
-                <p class="member-role">QA Specialist</p>
-                <p class="member-bio">Detail-oriented tester who catches bugs before they become problems. Guardian of code quality and user satisfaction.</p>
-            </div>
-        </div>
-    </section>
+        // Team Card Component
+        const TeamCard = ({ member, index }) => {
+            return (
+                <div className="team-card" style={{ animationDelay: `${index * 0.1}s` }}>
+                    <div className="profile-img">{member.initial}</div>
+                    <h3 className="member-name">{member.name}</h3>
+                    <p className="member-role">{member.role}</p>
+                    <p className="member-credentials">{member.credentials}</p>
+                    <p className="member-bio">{member.bio}</p>
+                </div>
+            );
+        };
 
-    <section class="skills-section" id="skills">
-        <h2 class="section-title">What We Do Best</h2>
-        <p class="section-subtitle">Our core competencies</p>
-        
-        <div class="skills-grid">
-            <div class="skill-item">
-                <div class="skill-icon">🤖</div>
-                <h3 class="skill-name">Machine Learning</h3>
-                <p class="skill-description">Advanced ML models and algorithms for intelligent automation</p>
-            </div>
+        // Team Section Component
+        const TeamSection = () => {
+            return (
+                <section className="section" id="team">
+                    <h2 className="section-title">Our Team</h2>
+                    <p className="section-subtitle">World-class experts driving AI innovation and research excellence</p>
+                    <div className="team-grid">
+                        {teamMembers.map((member, index) => (
+                            <TeamCard key={index} member={member} index={index} />
+                        ))}
+                    </div>
+                </section>
+            );
+        };
 
-            <div class="skill-item">
-                <div class="skill-icon">🧠</div>
-                <h3 class="skill-name">Neural Networks</h3>
-                <p class="skill-description">Deep learning solutions for complex problem solving</p>
-            </div>
+        // Award Card Component
+        const AwardCard = ({ award, index }) => {
+            return (
+                <div className="award-card" style={{ animationDelay: `${index * 0.1}s` }}>
+                    <div className="award-icon">{award.icon}</div>
+                    <h3 className="award-title">{award.title}</h3>
+                    <p className="award-org">{award.org}</p>
+                    <p className="award-desc">{award.description}</p>
+                    <p className="award-year">{award.year}</p>
+                    <a href={award.link} target="_blank" rel="noopener noreferrer" className="award-link">
+                        Learn More →
+                    </a>
+                </div>
+            );
+        };
 
-            <div class="skill-item">
-                <div class="skill-icon">📊</div>
-                <h3 class="skill-name">Data Analytics</h3>
-                <p class="skill-description">AI-powered insights and predictive analytics</p>
-            </div>
+        // Awards Section Component
+        const AwardsSection = () => {
+            return (
+                <section className="section" id="awards">
+                    <h2 className="section-title">Recognition & Awards</h2>
+                    <p className="section-subtitle">Celebrating excellence in AI innovation and research</p>
+                    <div className="awards-grid">
+                        {awards.map((award, index) => (
+                            <AwardCard key={index} award={award} index={index} />
+                        ))}
+                    </div>
+                </section>
+            );
+        };
 
-            <div class="skill-item">
-                <div class="skill-icon">💡</div>
-                <h3 class="skill-name">AI Integration</h3>
-                <p class="skill-description">Seamless AI solutions for existing workflows</p>
-            </div>
-        </div>
-    </section>
+        // Footer Component
+        const Footer = () => {
+            return (
+                <footer className="footer" id="contact">
+                    <div className="footer-content">
+                        <p>© 2024 Innovative AI Technologies LLC - Newark, NJ</p>
+                        <p>
+                            Website: <a href="https://iAItUSA.com" target="_blank" rel="noopener noreferrer" className="footer-link">iAItUSA.com</a>
+                        </p>
+                        <p style={{ marginTop: '1rem', fontSize: '0.9rem' }}>
+                            Pioneering the future of artificial intelligence through advanced research and innovation
+                        </p>
+                    </div>
+                </footer>
+            );
+        };
 
-    <footer id="contact">
-        <p>&copy; 2024 iAI Tech. Innovative AI Technologies - Built with passion and precision.</p>
-    </footer>
+        // Main App Component
+        const App = () => {
+            const [loading, setLoading] = useState(true);
 
-    <script>
-        // Custom cursor
-        const cursorDot = document.querySelector('.cursor-dot');
-        const cursorOutline = document.querySelector('.cursor-outline');
+            useEffect(() => {
+                // Simulate loading
+                setTimeout(() => setLoading(false), 1500);
 
-        document.addEventListener('mousemove', (e) => {
-            cursorDot.style.left = e.clientX + 'px';
-            cursorDot.style.top = e.clientY + 'px';
-            
-            cursorOutline.style.left = e.clientX + 'px';
-            cursorOutline.style.top = e.clientY + 'px';
-        });
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                // Create floating particles
+                for (let i = 0; i < 30; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.animationDelay = Math.random() * 15 + 's';
+                    particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                    document.body.appendChild(particle);
                 }
-            });
-        });
 
-        // Parallax effect on scroll
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallax = document.querySelector('.background-animation');
-            parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
-        });
+                // Scroll reveal effect
+                const handleScroll = () => {
+                    const reveals = document.querySelectorAll('.scroll-reveal');
+                    reveals.forEach(el => {
+                        const windowHeight = window.innerHeight;
+                        const elementTop = el.getBoundingClientRect().top;
+                        const elementVisible = 150;
+
+                        if (elementTop < windowHeight - elementVisible) {
+                            el.classList.add('active');
+                        }
+                    });
+                };
+
+                window.addEventListener('scroll', handleScroll);
+                return () => window.removeEventListener('scroll', handleScroll);
+            }, []);
+
+            if (loading) {
+                return (
+                    <div className="loading">
+                        <div className="loader"></div>
+                    </div>
+                );
+            }
+
+            return (
+                <>
+                    <div className="neural-bg"></div>
+                    <Header />
+                    <Hero />
+                    <TeamSection />
+                    <AwardsSection />
+                    <Footer />
+                </>
+            );
+        };
+
+        // Render App
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
     </script>
 </body>
 </html>
