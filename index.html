@@ -98,20 +98,20 @@
         }
 
         .logo-img {
-    width: 75px;
-    height: 75px;
-    border-radius: 50%;
-    object-fit: cover;
-    background: transparent;
-    filter: drop-shadow(0 0 18px rgba(0, 212, 255, 0.6));
-    transition: all 0.3s ease;
-    transform: scale(1.1);
-}
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: transparent;
+            filter: drop-shadow(0 0 18px rgba(0, 212, 255, 0.6));
+            transition: all 0.3s ease;
+            transform: scale(1.1);
+        }
 
-.logo-img:hover {
-    transform: scale(1.18);
-    filter: drop-shadow(0 0 25px rgba(0, 212, 255, 0.9));
-}
+        .logo-img:hover {
+            transform: scale(1.18);
+            filter: drop-shadow(0 0 25px rgba(0, 212, 255, 0.9));
+        }
 
         @keyframes rotate {
             from { transform: rotate(0deg); }
@@ -119,7 +119,7 @@
         }
 
         .logo-text {
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'BlinkMacSystemFont', monospace;
             font-size: 1.8rem;
             font-weight: 900;
             background: linear-gradient(135deg, var(--cyber-cyan), var(--neon-pink));
@@ -127,6 +127,9 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+            font-style: italic;
+            transform: skewX(-10deg);
+            display: inline-block;
         }
 
         .nav {
@@ -177,7 +180,7 @@
         }
 
         .hero-title {
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Courier New', sans-serif;
             font-size: 5rem;
             font-weight: 900;
             line-height: 1.2;
@@ -292,6 +295,11 @@
             animation: fadeInUp 0.6s ease-out both;
         }
 
+        .team-card.featured {
+            border: 2px solid rgba(0, 212, 255, 0.5);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.2);
+        }
+
         .team-card::before {
             content: '';
             position: absolute;
@@ -302,6 +310,7 @@
             background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(107, 76, 154, 0.1));
             opacity: 0;
             transition: opacity 0.4s ease;
+            pointer-events: none;
         }
 
         .team-card:hover::before {
@@ -315,8 +324,8 @@
         }
 
         .profile-img {
-            width: 120px;
-            height: 120px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             margin: 0 auto 1.5rem;
             border: 3px solid var(--cyber-cyan);
@@ -331,6 +340,14 @@
             font-size: 3rem;
             font-weight: 900;
             font-family: 'Orbitron', sans-serif;
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            object-position: center 10%;
         }
 
         .member-name {
@@ -359,7 +376,8 @@
             line-height: 1.7;
             position: relative;
             z-index: 1;
-            text-align: center;
+            text-align: left;
+            margin-bottom: 1.2rem;
         }
 
         .member-credentials {
@@ -367,9 +385,50 @@
             font-size: 0.95rem;
             font-style: italic;
             margin-top: 0.8rem;
+            margin-bottom: 1rem;
             position: relative;
             z-index: 1;
             text-align: center;
+        }
+
+        .oait-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--cyber-cyan), var(--deep-purple));
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .oait-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.5);
+        }
+
+        .cv-btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: linear-gradient(135deg, var(--neon-pink), var(--deep-purple));
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(255, 0, 110, 0.3);
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .cv-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 0, 110, 0.5);
         }
 
         /* Awards Section */
@@ -575,15 +634,36 @@
                 name: "Chengjun Liu",
                 role: "Founder & AI Visionary",
                 credentials: "Founder of the Open AI Team",
-                bio: "Pioneering artificial intelligence research and leading breakthrough innovations in computer vision and machine learning. Driving cutting-edge solutions in AI-powered video analysis and neural network architectures.",
-                initial: "CL"
+                bioIntro: "Prof. Liu, founder of the Open AI Team (OAIT), works in AI, Pattern Recognition and Machine Learning, Computer Vision, and Security.",
+                researchAreas: [
+                    "AI/ML for Smart Energy",
+                    "AI/ML for Smart Health",
+                    "Video Analytics for Reducing Traffic Congestion, Improving Traffic Safety, Home Security, Smart UAS/Drones, and Autonomous Driving",
+                    "Facial Recognition for Enhancing Security and Public Safety"
+                ],
+                bioClosing: "Prof. Liu brings over three decades of experience in the major aspects of AI, startups, and nonprofit to an elite group of the OAIT to excel in all aspects of AI innovation and technologies. The OAIT thus is a perfect match on AI innovation challenge for improving NJ economy and enhancing NJ innovation ecosystems.",
+                initial: "CL",
+                image: "./chengjun-liu.jpg",
+                cvLink: "./LiuCV.pdf",
+                oaitLink: "https://oaiteam.org",
+                featured: true
             },
             {
                 name: "Taro Narahara",
                 role: "Chief Operating Officer",
-                credentials: "PhD, Harvard; M.S., MIT",
-                bio: "Strategic operations leader with deep expertise in AI implementation and organizational scaling. Drives operational excellence and business growth initiatives with proven academic foundation.",
-                initial: "TN"
+                credentials: "PhD, Harvard; M.S., MIT; M.Arch., Washington University",
+                bioIntro: "Prof. Taro Narahara received the B.S. degree in mathematics from Waseda University, the M. Arch. degree from Washington University, St. Louis, the M.S. degree in design and computation from the Massachusetts Institute of Technology, and the Doctor of Design degree from Harvard University.",
+                bioDetails: [
+                    "Currently an Associate Professor with the Hillier College of Architecture and Design, New Jersey Institute of Technology",
+                    "Between 2018 and 2020, Visiting Scholar with the ETH Zurich's Institute of Technology in Architecture, Switzerland, and with the Graduate School of Information Science and Technology, The University of Tokyo, Japan",
+                    "Research interests include architectural design and machine learning",
+                    "Worked on award-winning projects such as the Mori Art Museum while associated with Gluckman Mayner Architects and Skidmore, Owings & Merrill LLP"
+                ],
+                bioClosing: "He now serves as the Chief Operating Officer (COO) of the Innovative AI Technologies LLC.",
+                initial: "TN",
+                image: "./taro-narahara.jpg",
+                cvLink: "./cv-taro-narahara.pdf",
+                featured: true
             },
             {
                 name: "Hang Shi",
@@ -603,6 +683,14 @@
 
         // Awards Data
         const awards = [
+          {
+                icon: "🏅",
+                title: "NJ CSIT/NJEDA SBIR/STTR Support Programs Award",
+                org: "New Jersey Commission on Science, Innovation and Technology",
+                description: "Recognition for innovative small business research and technology transfer initiatives advancing AI solutions in New Jersey",
+                year: "2023",
+                link: "https://www.njcsit.gov/"
+            },
             {
                 icon: "🏆",
                 title: "U.S. DOT SBIR Award",
@@ -646,7 +734,7 @@
             return (
                 <header className="header">
                     <div className="logo-container">
-                        <img src="./logo.png" alt="iAI Tech Logo" className="logo-img" onerror="this.style.display='none'" />
+                        <img src="./logo.png" alt="iAI Tech Logo" className="logo-img" onError={(e) => e.target.style.display='none'} />
                         <div className="logo-text">iAI Tech</div>
                     </div>
                     <nav className="nav">
@@ -681,12 +769,76 @@
         // Team Card Component
         const TeamCard = ({ member, index }) => {
             return (
-                <div className="team-card" style={{ animationDelay: `${index * 0.1}s` }}>
-                    <div className="profile-img">{member.initial}</div>
+                <div className={`team-card ${member.featured ? 'featured' : ''}`} style={{ animationDelay: `${index * 0.1}s` }}>
+                    <div className="profile-img">
+                        {member.image ? (
+                            <img src={member.image} alt={member.name} onError={(e) => { e.target.style.display='none'; e.target.parentElement.innerText = member.initial; }} />
+                        ) : (
+                            member.initial
+                        )}
+                    </div>
                     <h3 className="member-name">{member.name}</h3>
                     <p className="member-role">{member.role}</p>
                     <p className="member-credentials">{member.credentials}</p>
-                    <p className="member-bio">{member.bio}</p>
+                    {member.oaitLink && (
+    <div style={{ textAlign: 'center', marginBottom: '1rem' }}>
+    <a 
+        href="https://oaiteam.org"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="oait-badge"
+    >
+        🤖 Open AI Team (OAIT)
+    </a>
+</div>
+)}
+                    
+                    {/* Structured Bio */}
+                    {member.bioIntro && (
+                        <p className="member-bio">{member.bioIntro}</p>
+                    )}
+                    
+                    {member.researchAreas && (
+                        <div className="member-bio">
+                            <strong style={{ color: 'var(--cyber-cyan)' }}>Current Research Focus:</strong>
+                            <ul style={{ marginTop: '0.5rem', marginLeft: '1.2rem', textAlign: 'left' }}>
+                                {member.researchAreas.map((area, idx) => (
+                                    <li key={idx} style={{ marginBottom: '0.4rem' }}>{area}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
+                    
+                    {member.bioDetails && (
+                        <div className="member-bio">
+                            <ul style={{ marginTop: '0.5rem', marginLeft: '1.2rem', textAlign: 'left' }}>
+                                {member.bioDetails.map((detail, idx) => (
+                                    <li key={idx} style={{ marginBottom: '0.4rem' }}>{detail}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
+                    
+                    {member.bioClosing && (
+                        <p className="member-bio" style={{ marginTop: '1rem' }}>{member.bioClosing}</p>
+                    )}
+                    
+                    {/* Simple bio for other members */}
+                    {member.bio && (
+                        <p className="member-bio">{member.bio}</p>
+                    )}
+                    
+                    {member.cvLink && (
+                        <div style={{ textAlign: 'center' }}>
+                            <button 
+                                className="cv-btn" 
+                                onClick={() => window.open(member.cvLink, '_blank')}
+                                style={{ cursor: 'pointer', border: 'none' }}
+                            >
+                                📄 Download CV
+                            </button>
+                        </div>
+                    )}
                 </div>
             );
         };
