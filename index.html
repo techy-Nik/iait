@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="iAI Tech - Pioneering AI innovation in healthcare and infrastructure. Leading research in computer vision, deep learning, and intelligent medical systems led by Prof. Chengjun Liu at NJIT.">
+    <meta name="keywords" content="AI, Machine Learning, Computer Vision, Medical AI, NJIT, Face Recognition, Deep Learning">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="iAI Tech - Innovative AI Technologies">
+    <meta property="og:description" content="Pioneering AI through computer vision, deep learning, and intelligent medical systems">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://iAItUSA.com">
+    
+    <title>iAI Tech - Innovative AI Technologies | Prof. Chengjun Liu</title>
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg" aria-hidden="true">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        <div class="grid-pattern"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container header-content">
+            <a href="#home" class="logo-link" aria-label="iAI Tech Home">
+                <img src="./logo.png" alt="iAI Tech Logo" class="logo-img" onerror="this.style.display='none'">
+                <span class="logo-text">iAI<span class="logo-accent">Tech</span></span>
+            </a>
+            
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            
+            <nav class="nav" role="navigation">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#impact" class="nav-link">Impact</a>
+                <a href="#frvp" class="nav-link">FRVP Lab</a>
+                <a href="#research" class="nav-link">Research</a>
+                <a href="#publications" class="nav-link">Publications</a>
+                <a href="#awards" class="nav-link">Awards</a>
+                <a href="#team" class="nav-link">Team</a>
+                <a href="#contact" class="nav-link nav-link--cta">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-container">
+            <div class="hero-content fade-in-up">
+                <div class="hero-badge">
+                    <span class="badge-icon">🏆</span>
+                    <span>Award-Winning AI Research</span>
+                </div>
+                <h1 class="hero-title">
+                    Pioneering the Future of
+                    <span class="gradient-text">Artificial Intelligence</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Advancing healthcare and infrastructure through cutting-edge computer vision, 
+                    deep learning, and intelligent medical systems. Led by Prof. Chengjun Liu at NJIT.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#research" class="btn btn-primary">
+                        <span>Explore Our Research</span>
+                        <svg class="btn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <span>Partner With Us</span>
+                    </a>
+                </div>
+                
+                <!-- Impact Stats -->
+                <div class="impact-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="47">0</div>
+                        <div class="stat-label">Publications</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="2340">0</div>
+                        <div class="stat-label">Citations</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="98">0</div>
+                        <div class="stat-label">Accuracy %</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Flagship Projects Showcase -->
+            <div class="hero-showcase fade-in-up" style="animation-delay: 0.2s">
+                <div class="showcase-header">
+                    <h2 class="showcase-title">Featured Projects</h2>
+                    <div class="carousel-controls" role="group" aria-label="Carousel controls">
+                        <button class="carousel-btn carousel-prev" aria-label="Previous project">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <button class="carousel-btn carousel-next" aria-label="Next project">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="projects-carousel">
+                    <div class="project-slide active">
+                        <div class="project-icon">🏥</div>
+                        <h3 class="project-name">AI Doctor & Digital Assistant</h3>
+                        <p class="project-desc">
+                            Revolutionary AI-powered medical diagnostics leveraging deep learning for early disease 
+                            detection. Comprehensive health monitoring across multiple specialties.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Alzheimer's Detection</span>
+                            <span class="tag">Parkinson's Diagnosis</span>
+                            <span class="tag">Tumor Detection</span>
+                            <span class="tag">98%+ Accuracy</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-slide">
+                        <div class="project-icon">⚡</div>
+                        <h3 class="project-name">Smart Energy Infrastructure</h3>
+                        <p class="project-desc">
+                            Award-winning computer vision for power line inspection and wildfire prevention. 
+                            Edge computing and 5G-enabled drone technology for grid optimization.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Power Line Detection</span>
+                            <span class="tag">Defect Analysis</span>
+                            <span class="tag">Edge AI</span>
+                            <span class="tag">Best Paper Award</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-slide">
+                        <div class="project-icon">👁️</div>
+                        <h3 class="project-name">Face Recognition Systems</h3>
+                        <p class="project-desc">
+                            Advanced pattern recognition achieving top performance in FRGC competition. 
+                            Real-time video analytics for security and surveillance applications.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Real-Time Processing</span>
+                            <span class="tag">3D Recognition</span>
+                            <span class="tag">Video Analytics</span>
+                            <span class="tag">FRGC Winner</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-indicators" role="tablist">
+                    <button class="indicator active" aria-label="Project 1" role="tab"></button>
+                    <button class="indicator" aria-label="Project 2" role="tab"></button>
+                    <button class="indicator" aria-label="Project 3" role="tab"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Dashboard -->
+    <section class="impact-section" id="impact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Real-World Impact</span>
+                <h2 class="section-title">Transforming Theory into Practice</h2>
+                <p class="section-subtitle">
+                    Our research doesn't just publish papers—it saves lives, protects infrastructure, 
+                    and advances the field of artificial intelligence.
+                </p>
+            </div>
+            
+            <div class="impact-grid">
+                <div class="impact-card card-animate">
+                    <div class="impact-icon">🎯</div>
+                    <h3 class="impact-title">Medical AI Accuracy</h3>
+                    <div class="impact-metric">98.90%</div>
+                    <p class="impact-desc">
+                        Fruit quality classification accuracy, demonstrating robust performance 
+                        in real-world agricultural applications with practical deployment potential.
+                    </p>
+                    <div class="impact-footer">
+                        <span class="impact-tag">Validated</span>
+                        <span class="impact-tag">Production-Ready</span>
+                    </div>
+                </div>
+                
+                <div class="impact-card card-animate" style="animation-delay: 0.1s">
+                    <div class="impact-icon">🚗</div>
+                    <h3 class="impact-title">Traffic Monitoring</h3>
+                    <div class="impact-metric">10x</div>
+                    <p class="impact-desc">
+                        Improvement over traditional RADAR systems for vehicle counting accuracy, 
+                        revolutionizing intelligent transportation systems.
+                    </p>
+                    <div class="impact-footer">
+                        <span class="impact-tag">Patented</span>
+                        <span class="impact-tag">Field-Tested</span>
+                    </div>
+                </div>
+                
+                <div class="impact-card card-animate" style="animation-delay: 0.2s">
+                    <div class="impact-icon">🏆</div>
+                    <h3 class="impact-title">FRGC Competition</h3>
+                    <div class="impact-metric">#1</div>
+                    <p class="impact-desc">
+                        Best performance in government-organized Face Recognition Grand Challenge, 
+                        outperforming leading academic and industry teams worldwide.
+                    </p>
+                    <div class="impact-footer">
+                        <span class="impact-tag">Award-Winning</span>
+                        <span class="impact-tag">NIST Validated</span>
+                    </div>
+                </div>
+                
+                <div class="impact-card card-animate" style="animation-delay: 0.3s">
+                    <div class="impact-icon">⚡</div>
+                    <h3 class="impact-title">Power Grid Safety</h3>
+                    <div class="impact-metric">24/7</div>
+                    <p class="impact-desc">
+                        Continuous automated monitoring of electrical infrastructure preventing 
+                        failures and reducing wildfire risk through real-time defect detection.
+                    </p>
+                    <div class="impact-footer">
+                        <span class="impact-tag">DOT Funded</span>
+                        <span class="impact-tag">Active Deployment</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FRVP Lab Section -->
+    <section class="frvp-section" id="frvp">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Core Research Lab</span>
+                <h2 class="section-title">Face Recognition & Video Processing Laboratory</h2>
+                <p class="section-subtitle">
+                    Advanced pattern recognition and video analytics achieving world-class performance 
+                    in challenging real-world environments.
+                </p>
+            </div>
+            
+            <div class="frvp-content">
+                <div class="frvp-gallery card-animate">
+                    <div class="gallery-main">
+                        <img src="./images/ufr.jpg" alt="Unconstrained Facial Recognition" class="gallery-image active" loading="lazy">
+                        <img src="./images/IVFR.jpg" alt="Image vs Video Facial Recognition" class="gallery-image" loading="lazy">
+                        <img src="./images/FRGC.jpg" alt="FRGC Challenge" class="gallery-image" loading="lazy">
+                        <img src="./images/BDF.jpg" alt="Bayesian Discriminating Features" class="gallery-image" loading="lazy">
+                        <img src="./images/eyeDet.jpg" alt="Eye Detection" class="gallery-image" loading="lazy">
+                        <img src="./images/iris.jpg" alt="Iris Recognition" class="gallery-image" loading="lazy">
+                        <img src="./images/HHMAP.jpg" alt="Hierarchial Interaction Model" class="gallery-image" loading="lazy">
+                        <img src="./images/llknnc.jpg" alt="LLKN Classifier" class="gallery-image" loading="lazy">
+                        <img src="./images/LQPFLQP.jpg" alt="" class="gallery-image" loading="lazy">
+                        <img src="./images/Neurocomputing13-FLBP.jpg" alt="" class="gallery-image" loading="lazy">
+                        <img src="./images/TIP14-CDA.jpg" alt="" class="gallery-image" loading="lazy">
+                        <img src="./images/TPAMI00-EP.jpg" alt="" class="gallery-image" loading="lazy">
+                        <img src="./images/TPAMI06-DIF.jpg" alt="" class="gallery-image" loading="lazy">
+                        <img src="./images/WLBP.jpg" alt="" class="gallery-image" loading="lazy">
+                        
+                    </div>
+                    <div class="gallery-thumbnails">
+                        <button class="thumbnail active" data-index="0" aria-label="Unconstrained Recognition">
+                            <img src="./images/ufr.jpg" alt="" loading="lazy">
+                        </button>
+                        <button class="thumbnail" data-index="1" aria-label="Image vs Video">
+                            <img src="./images/IVFR.jpg" alt="" loading="lazy">
+                        </button>
+                        <button class="thumbnail" data-index="2" aria-label="FRGC Challenge">
+                            <img src="./images/FRGC.jpg" alt="" loading="lazy">
+                        </button>
+                        <button class="thumbnail" data-index="3" aria-label="Bayesian Features">
+                            <img src="./images/BDF.jpg" alt="" loading="lazy">
+                        </button>
+                        <button class="thumbnail" data-index="4" aria-label="Eye Detection">
+                            <img src="./images/eyeDet.jpg" alt="" loading="lazy">
+                        </button>
+                        <button class="thumbnail" data-index="5" aria-label="Iris Recognition">
+                            <img src="./images/iris.jpg" alt="" loading="lazy">
+                        </button>
+                        <button class="thumbnail" data-index="6" aria-label="Efficient SVM">
+                            <img src="./images/eSVM.jpg" alt="" loading="lazy">
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="frvp-details card-animate" style="animation-delay: 0.2s">
+                    <h3 class="details-title">Research Excellence</h3>
+                    <p class="details-text">
+                        The FRVP Laboratory investigates advanced pattern recognition and video analytics 
+                        methods, developing innovative technologies that achieve best-in-class performance 
+                        on challenging real-world problems.
+                    </p>
+                    
+                    <div class="achievements-list">
+                        <div class="achievement-item">
+                            <div class="achievement-icon">✓</div>
+                            <div>
+                                <strong>FRGC Competition Winner</strong>
+                                <p>Best performance in government-organized challenge</p>
+                            </div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-icon">✓</div>
+                            <div>
+                                <strong>10x RADAR Improvement</strong>
+                                <p>Revolutionary vehicle counting accuracy</p>
+                            </div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-icon">✓</div>
+                            <div>
+                                <strong>Patented Technologies</strong>
+                                <p>Face detection, iris recognition, image search</p>
+                            </div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-icon">✓</div>
+                            <div>
+                                <strong>Commercial Superiority</strong>
+                                <p>Outperforms existing traffic monitoring systems</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="https://frvp.njit.edu" class="btn btn-outline" target="_blank" rel="noopener">
+                        <span>Visit FRVP Lab</span>
+                        <svg class="btn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section class="research-section" id="research">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Medical AI Innovation</span>
+                <h2 class="section-title">Intelligent Medical Systems Architecture</h2>
+                <p class="section-subtitle">
+                    A comprehensive framework of specialized AI systems working together 
+                    to revolutionize healthcare diagnostics and treatment.
+                </p>
+            </div>
+            
+            <div class="research-diagram">
+                <div class="diagram-header">
+                    <h3 class="diagram-title">AI Doctor & Digital Assistant Framework</h3>
+                    <p class="diagram-subtitle">Integrated Multi-Specialty Diagnostic System</p>
+                </div>
+                
+                <div class="systems-grid">
+                    <div class="system-card card-animate">
+                        <div class="system-header">
+                            <div class="system-icon">🔬</div>
+                            <h4 class="system-name">Rosacea Detection</h4>
+                        </div>
+                        <div class="system-content">
+                            <div class="system-stat">
+                                <span class="stat-label">Accuracy</span>
+                                <span class="stat-value">98%+</span>
+                            </div>
+                            <div class="system-stat">
+                                <span class="stat-label">Data Sources</span>
+                                <span class="stat-value">Digital Images/Video</span>
+                            </div>
+                            <p class="system-feature">Privacy-Preserving AI</p>
+                        </div>
+                    </div>
+                    
+                    <div class="system-card card-animate" style="animation-delay: 0.1s">
+                        <div class="system-header">
+                            <div class="system-icon">🏥</div>
+                            <h4 class="system-name">Laparoscopic Desmoking</h4>
+                        </div>
+                        <div class="system-content">
+                            <div class="system-stat">
+                                <span class="stat-label">Application</span>
+                                <span class="stat-value">Surgical Enhancement</span>
+                            </div>
+                            <div class="system-stat">
+                                <span class="stat-label">Real-Time</span>
+                                <span class="stat-value">Yes</span>
+                            </div>
+                            <p class="system-feature">Enhanced Visualization</p>
+                        </div>
+                    </div>
+                    
+                    <div class="system-card card-animate" style="animation-delay: 0.2s">
+                        <div class="system-header">
+                            <div class="system-icon">🩻</div>
+                            <h4 class="system-name">Breast Cancer Detection</h4>
+                        </div>
+                        <div class="system-content">
+                            <div class="system-stat">
+                                <span class="stat-label">Modality</span>
+                                <span class="stat-value">X-Ray, Mammography</span>
+                            </div>
+                            <div class="system-stat">
+                                <span class="stat-label">Prediction</span>
+                                <span class="stat-value">Margin Positivity</span>
+                            </div>
+                            <p class="system-feature">Clinical Decision Support</p>
+                        </div>
+                    </div>
+                    
+                    <div class="system-card card-animate" style="animation-delay: 0.3s">
+                        <div class="system-header">
+                            <div class="system-icon">🔍</div>
+                            <h4 class="system-name">Tumor Detection</h4>
+                        </div>
+                        <div class="system-content">
+                            <div class="system-stat">
+                                <span class="stat-label">Organs</span>
+                                <span class="stat-value">Liver, Prostate, Brain</span>
+                            </div>
+                            <div class="system-stat">
+                                <span class="stat-label">Imaging</span>
+                                <span class="stat-value">CT, MRI, PET</span>
+                            </div>
+                            <p class="system-feature">Multi-Organ Detection</p>
+                        </div>
+                    </div>
+                    
+                    <div class="system-card card-animate" style="animation-delay: 0.4s">
+                        <div class="system-header">
+                            <div class="system-icon">🧠</div>
+                            <h4 class="system-name">Parkinson's Detection</h4>
+                        </div>
+                        <div class="system-content">
+                            <div class="system-stat">
+                                <span class="stat-label">Method</span>
+                                <span class="stat-value">Deep Learning</span>
+                            </div>
+                            <div class="system-stat">
+                                <span class="stat-label">Stage</span>
+                                <span class="stat-value">Early Detection</span>
+                            </div>
+                            <p class="system-feature">Optimal Feature Extraction</p>
+                        </div>
+                    </div>
+                    
+                    <div class="system-card card-animate" style="animation-delay: 0.5s">
+                        <div class="system-header">
+                            <div class="system-icon">💊</div>
+                            <h4 class="system-name">Alzheimer's Detection</h4>
+                        </div>
+                        <div class="system-content">
+                            <div class="system-stat">
+                                <span class="stat-label">Conversion</span>
+                                <span class="stat-value">MCI Prediction</span>
+                            </div>
+                            <div class="system-stat">
+                                <span class="stat-label">Biomarkers</span>
+                                <span class="stat-value">MRI + Blood Tests</span>
+                            </div>
+                            <p class="system-feature">Multi-Modal Analysis</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section class="publications-section" id="publications">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Research Output</span>
+                <h2 class="section-title">Recent Publications</h2>
+                <p class="section-subtitle">
+                    Peer-reviewed research advancing the state-of-the-art in AI, 
+                    computer vision, and medical diagnostics.
+                </p>
+            </div>
+            
+            <div class="publications-list">
+                <article class="publication-item card-animate">
+                    <div class="pub-badge">🏆 Best Paper Award</div>
+                    <h3 class="pub-title">
+                        Machine Learning and AI for Optimizing and Safeguarding Energy Transmission 
+                        in Storms by Automatic Inspection of Electrical Wires
+                    </h3>
+                    <p class="pub-authors">Z. Yu, K.S. Ganni, J.A. Mehta, P. Pong, J. Li, and C. Liu</p>
+                    <p class="pub-venue">2025, IEEE Xplore</p>
+                    <div class="pub-tags">
+                        <span class="tag">Energy Infrastructure</span>
+                        <span class="tag">Computer Vision</span>
+                        <span class="tag">Storm Safety</span>
+                    </div>
+                </article>
+                
+                <article class="publication-item card-animate" style="animation-delay: 0.1s">
+                    <h3 class="pub-title">
+                        Preventing Wildfires in Energy Transmission by Automatic Power Line 
+                        Defects Detection Using Machine Learning and AI
+                    </h3>
+                    <p class="pub-authors">C. Yang, R. Yesgari, V. Vora, P. Pong, J. Li, and C. Liu</p>
+                    <p class="pub-venue">2025, IEEE Xplore</p>
+                    <div class="pub-tags">
+                        <span class="tag">Wildfire Prevention</span>
+                        <span class="tag">Defect Detection</span>
+                        <span class="tag">Infrastructure Safety</span>
+                    </div>
+                </article>
+                
+                <article class="publication-item card-animate" style="animation-delay: 0.2s">
+                    <h3 class="pub-title">
+                        Towards Building AI Doctor and Digital Assistant by Capitalizing 
+                        on A Mixture of AI Medical Systems
+                    </h3>
+                    <p class="pub-authors">C. Yang and C. Liu</p>
+                    <p class="pub-venue">6th International Conference on Medical Imaging and Computer-Aided Diagnosis, Nov. 19-21, 2025, London, UK</p>
+                    <div class="pub-tags">
+                        <span class="tag">Medical AI</span>
+                        <span class="tag">Healthcare</span>
+                        <span class="tag">Diagnostics</span>
+                    </div>
+                </article>
+                
+                <article class="publication-item card-animate" style="animation-delay: 0.3s">
+                    <h3 class="pub-title">
+                        Privacy-Preserving Automated Rosacea Detection Based on 
+                        Medically Inspired Region of Interest Selection
+                    </h3>
+                    <p class="pub-authors">C. Yang, R. Yesgari, and C. Liu</p>
+                    <p class="pub-venue">IEEE International Conference on Electrical and Computer Engineering Researches, Dec. 6-8, 2025</p>
+                    <div class="pub-tags">
+                        <span class="tag">Privacy-Preserving</span>
+                        <span class="tag">Dermatology</span>
+                        <span class="tag">Medical Imaging</span>
+                    </div>
+                </article>
+                
+                <article class="publication-item card-animate" style="animation-delay: 0.4s">
+                    <h3 class="pub-title">
+                        Investigating the Impact of Various Loss Functions and Learnable 
+                        Wiener Filter for Laparoscopic Image Desmoking
+                    </h3>
+                    <p class="pub-authors">C. Yang and C. Liu</p>
+                    <p class="pub-venue">6th International Conference on Medical Imaging and Computer-Aided Diagnosis, Nov. 19-21, 2025, London, UK</p>
+                    <div class="pub-tags">
+                        <span class="tag">Surgical Imaging</span>
+                        <span class="tag">Image Enhancement</span>
+                        <span class="tag">Deep Learning</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section class="awards-section" id="awards">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Recognition</span>
+                <h2 class="section-title">Awards & Achievements</h2>
+                <p class="section-subtitle">
+                    Excellence recognized by leading government agencies and industry organizations.
+                </p>
+            </div>
+            
+            <div class="awards-grid">
+                <div class="award-card card-animate">
+                    <div class="award-year">2023</div>
+                    <div class="award-icon">🏅</div>
+                    <h3 class="award-title">NJ CSIT/NJEDA SBIR/STTR Award</h3>
+                    <p class="award-org">New Jersey Commission on Science, Innovation and Technology</p>
+                    <p class="award-desc">
+                        Recognition for innovative small business research advancing AI solutions in New Jersey's 
+                        innovation ecosystem.
+                    </p>
+                    <a href="https://www.njcsit.gov/" class="award-link" target="_blank" rel="noopener">
+                        Learn More →
+                    </a>
+                </div>
+                
+                <div class="award-card card-animate" style="animation-delay: 0.1s">
+                    <div class="award-year">2022-2023</div>
+                    <div class="award-icon">🏆</div>
+                    <h3 class="award-title">U.S. DOT SBIR Award</h3>
+                    <p class="award-org">U.S. Department of Transportation</p>
+                    <p class="award-desc">
+                        AI Video Analysis of Dilemma Zone Conflicts at Signal-Controlled Intersections 
+                        using Edge Computing and 5G technology.
+                    </p>
+                    <a href="https://www.volpe.dot.gov/work-with-us/small-business-innovation-research/fiscal-year-2022-awards#PhaseI" class="award-link" target="_blank" rel="noopener">
+                        Learn More →
+                    </a>
+                </div>
+                
+                <div class="award-card card-animate" style="animation-delay: 0.2s">
+                    <div class="award-year">2020</div>
+                    <div class="award-icon">🥇</div>
+                    <h3 class="award-title">NIST Public Safety Challenge</h3>
+                    <p class="award-org">National Institute of Standards and Technology</p>
+                    <p class="award-desc">
+                        Enhancing Computer Vision for Public Safety - Recognition for advancing AI-powered 
+                        safety solutions using deep learning and real-time analytics.
+                    </p>
+                    <a href="https://www.nist.gov/ctl/pscr/open-innovation-prize-challenges/past-prize-challenges/2020-enhancing-computer-vision" class="award-link" target="_blank" rel="noopener">
+                        Learn More →
+                    </a>
+                </div>
+                
+                <div class="award-card card-animate" style="animation-delay: 0.3s">
+                    <div class="award-year">2021-2022</div>
+                    <div class="award-icon">🚁</div>
+                    <h3 class="award-title">NIST FirstResponder UAS Challenge</h3>
+                    <p class="award-org">National Institute of Standards and Technology</p>
+                    <p class="award-desc">
+                        FastFind: UAS Search Optimized - Excellence in autonomous drone search and rescue 
+                        technology leveraging computer vision and edge AI.
+                    </p>
+                    <a href="https://www.nist.gov/ctl/pscr/open-innovation-prize-challenges/past-prize-challenges/2021-first-responder-uas-triple/uas" class="award-link" target="_blank" rel="noopener">
+                        Learn More →
+                    </a>
+                </div>
+                
+                <div class="award-card card-animate" style="animation-delay: 0.4s">
+                    <div class="award-year">2023</div>
+                    <div class="award-icon">💡</div>
+                    <h3 class="award-title">US Ignite: AI for IoT Prize</h3>
+                    <p class="award-org">US Ignite</p>
+                    <p class="award-desc">
+                        AI for IoT Information (AI3) Prize - Innovation in integrating artificial intelligence 
+                        with Internet of Things infrastructure for smart city applications.
+                    </p>
+                    <a href="https://tamids.tamu.edu/2023/02/20/updated-ai-for-iot-information-ai3-competition-open-to-walk-ons-until-may-15-2023/" class="award-link" target="_blank" rel="noopener">
+                        Learn More →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section" id="team">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Leadership</span>
+                <h2 class="section-title">Our Team</h2>
+                <p class="section-subtitle">
+                    World-class experts driving innovation in artificial intelligence and machine learning.
+                </p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-card team-card--featured card-animate">
+                    <div class="team-image">
+                        <img src="./chengjun-liu.jpg" alt="Prof. Chengjun Liu" loading="lazy" onerror="this.style.display='none'">
+                        <div class="team-image-fallback">CL</div>
+                    </div>
+                    <div class="team-content">
+                        <h3 class="team-name">Prof. Chengjun Liu</h3>
+                        <p class="team-role">Founder & AI Visionary</p>
+                        <p class="team-credentials">Founder of the Open AI Team (OAIT)</p>
+                        <p class="team-bio">
+                            Leading researcher in AI, Pattern Recognition, Machine Learning, Computer Vision, 
+                            and Security with over three decades of experience. Prof. Liu brings unparalleled 
+                            expertise to advancing AI technologies for healthcare and infrastructure.
+                        </p>
+                        <div class="team-actions">
+                            <a href="./LiuCV.pdf" class="btn btn-sm btn-outline" target="_blank">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M8 11L4 7L5.4 5.6L7 7.2V2H9V7.2L10.6 5.6L12 7L8 11Z" fill="currentColor"/>
+                                    <path d="M14 14H2V10H4V12H12V10H14V14Z" fill="currentColor"/>
+                                </svg>
+                                <span>Download CV</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card team-card--featured card-animate" style="animation-delay: 0.1s">
+                    <div class="team-image">
+                        <img src="./cindyqiao.jpg" alt="Cindy Qiao" loading="lazy" onerror="this.style.display='none'">
+                        <div class="team-image-fallback">CQ</div>
+                    </div>
+                    <div class="team-content">
+                        <h3 class="team-name">Cindy Qiao</h3>
+                        <p class="team-role">Chief Operating Officer (interim)</p>
+                        <!-- <p class="team-credentials">Computer Science, University of Toronto</p> -->
+                        <p class="team-bio">
+                            Rising star in AI and software engineering with expertise in applied research. 
+                            Specializes in developing research grant proposals through collaborative innovation 
+                            with the Open AI Team.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="team-card team-card--featured card-animate" style="animation-delay: 0.2s">
+                    <div class="team-image">
+                        <div class="team-image-fallback">TN</div>
+                    </div>
+                    <div class="team-content">
+                        <h3 class="team-name">Prof. Taro Narahara</h3>
+                        <p class="team-role">Faculty Consultant</p>
+                        <!-- <p class="team-credentials">PhD Harvard | MS MIT | M.Arch Washington University</p> -->
+                        <p class="team-bio">
+                            Distinguished researcher with degrees from Waseda University (B.S. Mathematics), 
+                            Washington University (M.Arch.), MIT (M.S. Design and Computation), and Harvard 
+                            University (Doctor of Design).
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="team-card card-animate" style="animation-delay: 0.3s">
+                    <div class="team-image">
+                        <div class="team-image-fallback">HS</div>
+                    </div>
+                    <div class="team-content">
+                        <h3 class="team-name">Hang Shi</h3>
+                        <p class="team-role">Former CTO</p>
+                        <p class="team-credentials">Currently at Goldman Sachs, Manhattan, NY</p>
+                        <p class="team-bio">
+                            Technology architect with proven track record in building scalable AI infrastructure. 
+                            Now applying cutting-edge ML solutions in quantitative finance at Goldman Sachs.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="team-card card-animate" style="animation-delay: 0.4s">
+                    <div class="team-image">
+                        <img src="./hadi.png" alt="Hadi Ghahremannezhad" loading="lazy" onerror="this.style.display='none'">
+                        <div class="team-image-fallback">HG</div>
+                    </div>
+                    <div class="team-content">
+                        <h3 class="team-name">Hadi Ghahremannezhad</h3>
+                        <p class="team-role">Former Chief ML Officer</p>
+                        <p class="team-credentials">Currently at Amazon, Arlington, VA</p>
+                        <p class="team-bio">
+                            Machine learning expert specializing in neural networks and deep learning architectures. 
+                            Leading advanced AI initiatives at Amazon, focusing on large-scale distributed systems.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact/CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Partner With Us?</h2>
+                <p class="cta-subtitle">
+                    Join us in advancing the future of artificial intelligence. 
+                    Whether you're seeking research collaboration, technology licensing, 
+                    or exploring grant opportunities.
+                </p>
+                <div class="cta-actions">
+                    <a href="mailto:contact@iAItUSA.com" class="btn btn-primary btn-lg">
+                        <span>Get in Touch</span>
+                        <svg class="btn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="https://oaiteam.org" class="btn btn-outline btn-lg" target="_blank" rel="noopener">
+                        <span>Visit Open AI Team</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-logo">iAI<span>Tech</span></div>
+                    <p class="footer-tagline">
+                        Pioneering the future of artificial intelligence through 
+                        advanced research and innovation.
+                    </p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4 class="footer-heading">Research</h4>
+                        <ul class="footer-list">
+                            <li><a href="#frvp">FRVP Lab</a></li>
+                            <li><a href="#research">Medical AI</a></li>
+                            <li><a href="#publications">Publications</a></li>
+                            <li><a href="#awards">Awards</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <h4 class="footer-heading">About</h4>
+                        <ul class="footer-list">
+                            <li><a href="#team">Our Team</a></li>
+                            <li><a href="#impact">Impact</a></li>
+                            <li><a href="https://frvp.njit.edu" target="_blank" rel="noopener">FRVP Website</a></li>
+                            <li><a href="https://oaiteam.org" target="_blank" rel="noopener">Open AI Team</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <h4 class="footer-heading">Connect</h4>
+                        <ul class="footer-list">
+                            <li><a href="#contact">Contact Us</a></li>
+                            <li><a href="https://iAItUSA.com" target="_blank" rel="noopener">Official Website</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    © 2026 Innovative AI Technologies, Inc. LLC - Newark, NJ
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
