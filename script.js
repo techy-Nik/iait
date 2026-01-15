@@ -9,7 +9,7 @@
     // STATE MANAGEMENT
     // ===================================
     const state = {
-        currentProjectSlide: 0,
+        // currentProjectSlide: 0,
         currentGalleryImage: 0,
         mobileMenuOpen: false,
         headerScrolled: false
@@ -24,18 +24,18 @@
         nav: document.querySelector('.nav'),
         navLinks: document.querySelectorAll('.nav-link'),
         
-        // Project Carousel
-        projectSlides: document.querySelectorAll('.project-slide'),
-        projectIndicators: document.querySelectorAll('.carousel-indicators .indicator'),
-        carouselPrev: document.querySelector('.carousel-prev'),
-        carouselNext: document.querySelector('.carousel-next'),
+        // Project Carousel - COMMENTED OUT
+        // projectSlides: document.querySelectorAll('.project-slide'),
+        // projectIndicators: document.querySelectorAll('.carousel-indicators .indicator'),
+        // carouselPrev: document.querySelector('.carousel-prev'),
+        // carouselNext: document.querySelector('.carousel-next'),
         
         // Gallery
         galleryImages: document.querySelectorAll('.gallery-image'),
         thumbnails: document.querySelectorAll('.thumbnail'),
         
-        // Stats
-        statNumbers: document.querySelectorAll('.stat-number')
+        // Stats - COMMENTED OUT
+        // statNumbers: document.querySelectorAll('.stat-number')
     };
 
     // ===================================
@@ -88,8 +88,9 @@
     }
 
     // ===================================
-    // PROJECT CAROUSEL
+    // PROJECT CAROUSEL - COMMENTED OUT
     // ===================================
+    /*
     function showProjectSlide(index) {
         // Wrap around
         if (index >= elements.projectSlides.length) {
@@ -123,6 +124,7 @@
     function startProjectCarousel() {
         return setInterval(nextProjectSlide, 5000);
     }
+    */
 
     // ===================================
     // GALLERY
@@ -156,12 +158,14 @@
     }
 
     function startGalleryAutoplay() {
+        if (elements.galleryImages.length === 0) return null;
         return setInterval(nextGalleryImage, 4000); // Auto-rotate every 4 seconds
     }
 
     // ===================================
-    // ANIMATED COUNTERS
+    // ANIMATED COUNTERS - COMMENTED OUT
     // ===================================
+    /*
     function animateCounter(element) {
         const target = parseInt(element.getAttribute('data-target'));
         const duration = 2000;
@@ -180,16 +184,20 @@
 
         updateCounter();
     }
+    */
 
     function handleIntersection(entries, observer) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const element = entry.target;
                 
+                // Stats animation - COMMENTED OUT
+                /*
                 if (element.classList.contains('stat-number')) {
                     animateCounter(element);
                     observer.unobserve(element);
                 }
+                */
             }
         });
     }
@@ -205,8 +213,8 @@
 
         const observer = new IntersectionObserver(handleIntersection, observerOptions);
 
-        // Observe stats
-        elements.statNumbers.forEach(stat => observer.observe(stat));
+        // Observe stats - COMMENTED OUT
+        // elements.statNumbers.forEach(stat => observer.observe(stat));
 
         // Observe cards
         const cards = document.querySelectorAll('.card-animate');
@@ -263,7 +271,8 @@
             });
         });
 
-        // Project carousel controls
+        // Project carousel controls - COMMENTED OUT
+        /*
         if (elements.carouselPrev) {
             elements.carouselPrev.addEventListener('click', prevProjectSlide);
         }
@@ -293,6 +302,7 @@
                 startProjectCarousel();
             });
         }
+        */
 
         // Gallery thumbnails
         elements.thumbnails.forEach((thumbnail, index) => {
@@ -301,19 +311,22 @@
             });
         });
 
-        // Start gallery auto-rotation
-        let galleryInterval = startGalleryAutoplay();
+        // Start gallery auto-rotation only if gallery exists
+        let galleryInterval = null;
+        if (elements.galleryImages.length > 0) {
+            galleryInterval = startGalleryAutoplay();
 
-        // Pause gallery auto-rotation on hover
-        const galleryContainer = document.querySelector('.frvp-gallery');
-        if (galleryContainer) {
-            galleryContainer.addEventListener('mouseenter', () => {
-                clearInterval(galleryInterval);
-            });
-            
-            galleryContainer.addEventListener('mouseleave', () => {
-                galleryInterval = startGalleryAutoplay();
-            });
+            // Pause gallery auto-rotation on hover
+            const galleryContainer = document.querySelector('.frvp-gallery');
+            if (galleryContainer) {
+                galleryContainer.addEventListener('mouseenter', () => {
+                    if (galleryInterval) clearInterval(galleryInterval);
+                });
+                
+                galleryContainer.addEventListener('mouseleave', () => {
+                    galleryInterval = startGalleryAutoplay();
+                });
+            }
         }
 
         // Initialize scroll reveal
@@ -379,7 +392,8 @@
     // ACCESSIBILITY HELPERS
     // ===================================
     function setupAccessibility() {
-        // Add keyboard navigation for carousel
+        // Add keyboard navigation for carousel - COMMENTED OUT
+        /*
         document.addEventListener('keydown', (e) => {
             const carouselFocused = document.activeElement.closest('.projects-carousel');
             
@@ -411,6 +425,7 @@
                 liveRegion.textContent = `Showing project ${index + 1} of ${elements.projectSlides.length}: ${slideTitle}`;
             }
         };
+        */
     }
 
     // ===================================
@@ -461,19 +476,22 @@
             });
         });
 
-        // Track publication views
-        document.querySelectorAll('.publication-item').forEach((pub, index) => {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        trackEvent('Publication', 'view', `Publication ${index + 1}`);
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.5 });
-            
-            observer.observe(pub);
-        });
+        // Track publication views - only if publications exist
+        const publications = document.querySelectorAll('.publication-item');
+        if (publications.length > 0) {
+            publications.forEach((pub, index) => {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            trackEvent('Publication', 'view', `Publication ${index + 1}`);
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+                
+                observer.observe(pub);
+            });
+        }
     }
 
     // ===================================
@@ -497,7 +515,7 @@
     // EXPOSE PUBLIC API
     // ===================================
     window.iAITech = {
-        showProjectSlide,
+        // showProjectSlide, // COMMENTED OUT
         showGalleryImage,
         closeMobileMenu
     };
