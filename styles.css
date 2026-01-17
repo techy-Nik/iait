@@ -807,7 +807,7 @@ section {
     margin-bottom: var(--space-sm);
 }
 
-.team-email {
+/* .team-email {
     margin-bottom: var(--space-md);
     padding: 0.5rem 1rem;
     background: rgba(6, 182, 212, 0.1);
@@ -816,7 +816,7 @@ section {
     display: inline-flex;
     align-items: center;
     gap: var(--space-xs);
-}
+} */
 
 .team-email a {
     color: var(--color-accent-light);
