@@ -239,6 +239,48 @@
     }
 
     // ===================================
+    // COPY EMAIL FUNCTIONALITY
+    // ===================================
+    async function copyEmailToClipboard(email, button) {
+        try {
+            await navigator.clipboard.writeText(email);
+            
+            // Visual feedback
+            button.classList.add('copied');
+            const originalHTML = button.innerHTML;
+            
+            // Change to checkmark
+            if (button.classList.contains('copy-email-btn--large')) {
+                button.innerHTML = '<svg width="20" height="20" viewBox="0 0 16 16" fill="none"><path d="M13 4L6 11L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+            } else {
+                button.innerHTML = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 4L6 11L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+            }
+            
+            setTimeout(() => {
+                button.classList.remove('copied');
+                button.innerHTML = originalHTML;
+            }, 2000);
+        } catch (err) {
+            console.error('Failed to copy email:', err);
+            // Fallback for older browsers
+            const textArea = document.createElement('textarea');
+            textArea.value = email;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-999999px';
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                button.classList.add('copied');
+                setTimeout(() => button.classList.remove('copied'), 2000);
+            } catch (err2) {
+                console.error('Fallback copy failed:', err2);
+            }
+            document.body.removeChild(textArea);
+        }
+    }
+
+    // ===================================
     // INITIALIZATION
     // ===================================
     function init() {
@@ -335,6 +377,15 @@
         // Handle image errors
         document.querySelectorAll('img').forEach(img => {
             img.addEventListener('error', () => handleImageError(img));
+        });
+
+        // Copy email buttons
+        document.querySelectorAll('.copy-email-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const email = btn.getAttribute('data-email');
+                copyEmailToClipboard(email, btn);
+            });
         });
 
         // Close mobile menu on resize
