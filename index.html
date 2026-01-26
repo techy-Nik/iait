@@ -6,7 +6,6 @@
     <meta name="description" content="iAI Tech - Pioneering AI innovation in healthcare and infrastructure. Leading research in computer vision, deep learning, and intelligent medical systems led by Prof. Chengjun Liu at NJIT.">
     <meta name="keywords" content="AI, Machine Learning, Computer Vision, Medical AI, NJIT, Face Recognition, Deep Learning">
     
-    <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="iAI Tech - Innovative AI Technologies">
     <meta property="og:description" content="Pioneering AI through computer vision, deep learning, and intelligent medical systems">
     <meta property="og:type" content="website">
@@ -14,17 +13,13 @@
     
     <title>iAI Tech - Innovative AI Technologies | Prof. Chengjun Liu</title>
     
-    <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Animated Background -->
     <div class="animated-bg" aria-hidden="true">
         <div class="gradient-orb orb-1"></div>
         <div class="gradient-orb orb-2"></div>
@@ -32,7 +27,6 @@
         <div class="grid-pattern"></div>
     </div>
 
-    <!-- Header -->
     <header class="header" id="header">
         <div class="container header-content">
             <a href="#home" class="logo-link" aria-label="iAI Tech Home">
@@ -48,10 +42,6 @@
             
             <nav class="nav" role="navigation">
                 <a href="#home" class="nav-link">Home</a>
-                <!-- <a href="#impact" class="nav-link">Impact</a> -->
-                <!-- <a href="#frvp" class="nav-link">FRVP Lab</a> -->
-                <!-- <a href="#research" class="nav-link">Research</a> -->
-                <!-- <a href="#publications" class="nav-link">Publications</a> -->
                 <a href="#awards" class="nav-link">Awards</a>
                 <a href="#team" class="nav-link">Team</a>
                 <a href="#contact" class="nav-link nav-link--cta">Contact</a>
@@ -59,29 +49,41 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
-        <!-- Background Image Slider -->
         <div class="hero-slider">
-            <div class="hero-slide" style="background-image: url('./images/Cover_page_3.png');"></div>
+            <div class="hero-slide active" style="background-image: url('./images/Cover_page_3.png');"></div>
             <div class="hero-slide" style="background-image: url('./images/Cover_Page_4.png');"></div>
-            <div class="hero-slide active" style="background-image: url('./images/AI_Doc.png');"></div>
+            <div class="hero-slide" style="background-image: url('./images/AI_Doc.png');"></div>
             <div class="hero-slide" style="background-image: url('./images/AI_DOC_2.png');"></div>
-            
         </div>
         
-        <!-- Slider Overlay -->
         <div class="hero-overlay"></div>
         
-        <!-- Slider Navigation Dots -->
+        <!-- PAUSE BUTTON DISABLED - Uncomment below to re-enable
+        <button class="slider-pause-btn" aria-label="Pause/Play slideshow" title="Pause/Play (or press Spacebar)">
+            <div class="pause-icon">
+                <span></span>
+                <span></span>
+            </div>
+            <div class="play-icon"></div>
+        </button>
+        -->
+        
         <div class="slider-dots">
-            <button class="slider-dot active" data-slide="0" aria-label="Slide 1"></button>
-            <button class="slider-dot" data-slide="1" aria-label="Slide 2"></button>
-            <button class="slider-dot" data-slide="2" aria-label="Slide 3"></button>
-            <button class="slider-dot" data-slide="3" aria-label="Slide 4"></button>
+            <button class="slider-dot active" data-slide="0" aria-label="Slide 1">
+                <span class="dot-tooltip">Slide 1</span>
+            </button>
+            <button class="slider-dot" data-slide="1" aria-label="Slide 2">
+                <span class="dot-tooltip">Slide 2</span>
+            </button>
+            <button class="slider-dot" data-slide="2" aria-label="Slide 3">
+                <span class="dot-tooltip">Slide 3</span>
+            </button>
+            <button class="slider-dot" data-slide="3" aria-label="Slide 4">
+                <span class="dot-tooltip">Slide 4</span>
+            </button>
         </div>
         
-        <!-- Optional: Slider Arrow Controls -->
         <button class="slider-arrow slider-arrow-prev" aria-label="Previous slide">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -92,9 +94,12 @@
                 <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
         </button>
+        
+        <div class="slider-progress">
+            <div class="slider-progress-bar"></div>
+        </div>
     </section>
 
-    <!-- Awards Section -->
     <section class="awards-section" id="awards">
         <div class="container">
             <div class="section-header">
@@ -179,7 +184,6 @@
         </div>
     </section>
 
-    <!-- Team Section -->
     <section class="team-section" id="team">
         <div class="container">
             <div class="section-header">
@@ -199,15 +203,7 @@
                     <div class="team-content">
                         <h3 class="team-name">Prof. Chengjun Liu</h3>
                         <p class="team-role">Founder & AI Visionary</p>
-                        <div class="team-email">
-                            <!-- <a href="mailto:liu@iaitusa.com">liu@iaitusa.com</a> -->
-                            <!-- <button class="copy-email-btn" data-email="liu@iaitusa.com" aria-label="Copy email to clipboard">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                    <rect x="5" y="5" width="9" height="9" rx="1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M2 10V3C2 2.44772 2.44772 2 3 2H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </button> -->
-                        </div>
+                        <div class="team-email"></div>
                         <p class="team-credentials">Founder of the Open AI Team (OAIT)</p>
                         <p class="team-bio">
                             Leading researcher in AI, Pattern Recognition, Machine Learning, Computer Vision, 
@@ -234,16 +230,7 @@
                     <div class="team-content">
                         <h3 class="team-name">Cindy Qiao</h3>
                         <p class="team-role">Chief Operating Officer (interim)</p>
-                        <div class="team-email">
-                            <!-- <a href="mailto:coo@iaitusa.com">coo@iaitusa.com</a> -->
-                            <!-- <button class="copy-email-btn" data-email="coo@iaitusa.com" aria-label="Copy email to clipboard">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                    <rect x="5" y="5" width="9" height="9" rx="1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M2 10V3C2 2.44772 2.44772 2 3 2H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </button> -->
-                        </div>
-                        <!-- <p class="team-credentials">Computer Science, University of Toronto</p> -->
+                        <div class="team-email"></div>
                         <p class="team-bio">
                             Rising star in AI and software engineering with expertise in applied research. 
                             Specializes in developing research grant proposals through collaborative innovation 
@@ -254,13 +241,12 @@
                 
                 <div class="team-card team-card--featured card-animate" style="animation-delay: 0.2s">
                     <div class="team-image">
-                         <img src="./taro.png" alt="Cindy Qiao" loading="lazy" onerror="this.style.display='none'">
+                         <img src="./taro.png" alt="Prof. Taro Narahara" loading="lazy" onerror="this.style.display='none'">
                         <div class="team-image-fallback">TN</div>
                     </div>
                     <div class="team-content">
                         <h3 class="team-name">Prof. Taro Narahara</h3>
                         <p class="team-role">Faculty Consultant</p>
-                        <!-- <p class="team-credentials">PhD Harvard | MS MIT | M.Arch Washington University</p> -->
                         <p class="team-bio">
                             Distinguished researcher with degrees from Waseda University (B.S. Mathematics), 
                             Washington University (M.Arch.), MIT (M.S. Design and Computation), and Harvard 
@@ -304,7 +290,6 @@
         </div>
     </section>
 
-    <!-- Contact/CTA Section -->
     <section class="cta-section" id="contact">
         <div class="container">
             <div class="cta-content">
@@ -318,7 +303,7 @@
                     <button class="copy-email-btn copy-email-btn--large" data-email="contact@iaitusa.com" aria-label="Copy email to clipboard">
                         <svg width="20" height="20" viewBox="0 0 16 16" fill="none">
                             <rect x="5" y="5" width="9" height="9" rx="1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M2 10V3C2 2.44772 2.44772 2 3 2H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 10V3C2 2.44772 2.44772 2 3 2H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </button>
                 </div>
@@ -337,7 +322,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container footer-container">
             <div class="footer-top">
@@ -357,9 +341,6 @@
                     <div class="footer-col">
                         <h4 class="footer-heading">Research</h4>
                         <ul class="footer-list">
-                            <!-- <li><a href="#frvp">FRVP Lab</a></li> -->
-                            <!-- <li><a href="#research">Medical AI</a></li> -->
-                            <!-- <li><a href="#publications">Publications</a></li> -->
                             <li><a href="#awards">Awards</a></li>
                         </ul>
                     </div>
@@ -368,8 +349,6 @@
                         <h4 class="footer-heading">About</h4>
                         <ul class="footer-list">
                             <li><a href="#team">Our Team</a></li>
-                            <!-- <li><a href="#impact">Impact</a></li> -->
-                            <!-- <li><a href="https://frvp.njit.edu" target="_blank" rel="noopener">FRVP Website</a></li> -->
                             <li><a href="https://oaiteam.org" target="_blank" rel="noopener">Open AI Team</a></li>
                         </ul>
                     </div>
@@ -378,7 +357,6 @@
                         <h4 class="footer-heading">Connect</h4>
                         <ul class="footer-list">
                             <li><a href="#contact">Contact Us</a></li>
-                            <!-- <li><a href="https://iAItUSA.com" target="_blank" rel="noopener">Official Website</a></li> -->
                         </ul>
                     </div>
                 </div>
@@ -386,11 +364,18 @@
             
             <div class="footer-bottom">
                 <p class="footer-copyright">
-                    © 2026 Innovative AI Technologies, Inc. - Newark, NJ
+                    &copy; 2026 Innovative AI Technologies, Inc. - Newark, NJ
                 </p>
             </div>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to top" title="Back to top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
 
     <script src="script.js"></script>
 </body>
