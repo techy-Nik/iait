@@ -30,21 +30,29 @@
     };
 
     // ===================================
-    // HEADER SCROLL EFFECT & AUTO-HIDE
+    // HEADER SCROLL EFFECT - NJIT STYLE + AUTO-HIDE ON HERO
     // ===================================
+    let headerHideTimeout = null;
+    let isOnHero = true;
+    
     function handleScroll() {
         const scrollY = window.scrollY;
         const heroHeight = document.querySelector('.hero')?.offsetHeight || window.innerHeight;
         const scrolled = scrollY > 50;
-        const pastHero = scrollY > heroHeight - 100;
         
-        // Auto-hide on hero, show when scrolled past hero
-        if (pastHero) {
-            elements.header.classList.add('visible');
-            elements.header.classList.add('scrolled');
+        // Check if we're on hero section
+        isOnHero = scrollY < heroHeight - 100;
+        
+        // Add scrolled class for darker background
+        elements.header.classList.toggle('scrolled', scrolled);
+        
+        // If not on hero, always show header
+        if (!isOnHero) {
+            elements.header.classList.remove('hidden');
+            clearTimeout(headerHideTimeout);
         } else {
-            elements.header.classList.remove('visible');
-            elements.header.classList.remove('scrolled');
+            // On hero - start hide timer
+            startHeaderHideTimer();
         }
         
         // Back to top button
@@ -58,6 +66,24 @@
         }
         
         state.headerScrolled = scrolled;
+    }
+    
+    function startHeaderHideTimer() {
+        clearTimeout(headerHideTimeout);
+        elements.header.classList.remove('hidden');
+        
+        headerHideTimeout = setTimeout(() => {
+            if (isOnHero) {
+                elements.header.classList.add('hidden');
+            }
+        }, 3000); // Hide after 3 seconds of inactivity
+    }
+    
+    function showHeaderTemporarily() {
+        if (isOnHero) {
+            elements.header.classList.remove('hidden');
+            startHeaderHideTimer();
+        }
     }
 
     // ===================================
@@ -517,6 +543,25 @@
                 }, 10);
             }
         });
+        
+        // Show header on mouse movement (hero section only)
+        let mouseMoveTimeout;
+        window.addEventListener('mousemove', () => {
+            clearTimeout(mouseMoveTimeout);
+            mouseMoveTimeout = setTimeout(() => {
+                showHeaderTemporarily();
+            }, 10);
+        });
+        
+        // Show header on any click
+        window.addEventListener('click', () => {
+            showHeaderTemporarily();
+        });
+        
+        // Show header on touch (mobile)
+        window.addEventListener('touchstart', () => {
+            showHeaderTemporarily();
+        }, { passive: true });
 
         if (elements.mobileMenuToggle) {
             elements.mobileMenuToggle.addEventListener('click', toggleMobileMenu);
