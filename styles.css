@@ -286,19 +286,19 @@ ul {
 }
 
 .logo-img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
+    width: 140px;
+    height: 140px;
+    /* border-radius: 50%; */
     object-fit: cover;
     object-position: center;
     background: transparent;
-    box-shadow: 0 0 25px rgba(99, 102, 241, 0.7);
-    border: 2px solid rgba(99, 102, 241, 0.4);
+    /* box-shadow: 0 0 25px rgba(99, 102, 241, 0.7); */
+    /* border: 2px solid rgba(99, 102, 241, 0.4); */
 }
 
-.logo-img:hover {
+/* .logo-img:hover {
     box-shadow: 0 0 35px rgba(99, 102, 241, 0.9);
-}
+} */
 
 .logo-text {
     font-family: var(--font-display);
